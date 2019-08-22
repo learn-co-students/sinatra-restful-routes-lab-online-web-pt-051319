@@ -23,15 +23,15 @@ class ApplicationController < Sinatra::Base
     erb :edit
   end
   
- 
-  
   post '/recipes' do
     @recipe = Recipe.create(params)
     redirect '/recipes/#{@recipe.id}'
   end
   
-  put '/recipes/:id' do
-
+  patch '/recipes/:id' do
+    @recipe = Recipe.find(params[:id])
+    @recipe.update(params[:recipe])
+    redirect 'recipes/#{@recipe.id}'
   end
   
   delete '/recipes/:id' do
