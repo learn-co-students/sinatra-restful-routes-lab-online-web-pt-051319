@@ -1,0 +1,6 @@
+<h1>Here are your recipes:</h1>
+<% @recipes.each.with_index(1) do |recipe, i| %>
+<a href="/recipes/<%= recipe.id %>"><h2><%= "#{i}: #{recipe.name}" %></h2></a>
+<p><%= "Takes #{recipe.cook_time} minutes," %></p>
+<p><%= "And requires #{recipe.ingredients}." %></p>
+<% end %>
